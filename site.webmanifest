@@ -2,18 +2,13 @@
   "name": "Odisha Anime Community",
   "short_name": "OAC Links",
   "description": "Official Link Portal for Odisha Anime Community. Event Passes, Talent Auditions, Stalls & Community Channels.",
-  "start_url": "./",
-  "scope": "./",
-  "id": "/OAC-Linktree/",
+  "start_url": "https://crystal-studio-labs.github.io/OAC-Linktree/",
+  "scope": "https://crystal-studio-labs.github.io/OAC-Linktree/",
+  "id": "https://crystal-studio-labs.github.io/OAC-Linktree/",
   "display": "standalone",
-  "display_override": [
-    "standalone",
-    "window-controls-overlay",
-    "minimal-ui"
-  ],
   "background_color": "#0C0C0C",
   "theme_color": "#0C0C0C",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "categories": [
     "entertainment",
     "social",
@@ -21,62 +16,50 @@
   ],
   "icons": [
     {
-      "src": "./favicon-32x32.png",
+      "src": "https://crystal-studio-labs.github.io/OAC-Linktree/favicon-32x32.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "./favicon.png",
+      "src": "https://crystal-studio-labs.github.io/OAC-Linktree/favicon.png",
       "sizes": "64x64",
       "type": "image/png"
     },
     {
-      "src": "./apple-touch-icon.png",
+      "src": "https://crystal-studio-labs.github.io/OAC-Linktree/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "./icon-192.png",
+      "src": "https://crystal-studio-labs.github.io/OAC-Linktree/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
-      "src": "./icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "./icon-512.png",
+      "src": "https://crystal-studio-labs.github.io/OAC-Linktree/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "screenshots": [
     {
-      "src": "./images/screenshots/screenshot-mobile-1.png",
+      "src": "https://crystal-studio-labs.github.io/OAC-Linktree/images/screenshots/screenshot-mobile-1.png",
       "sizes": "540x1170",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Odisha Anime Community Mobile Hub & Event Passes"
     },
     {
-      "src": "./images/screenshots/screenshot-mobile-2.png",
+      "src": "https://crystal-studio-labs.github.io/OAC-Linktree/images/screenshots/screenshot-mobile-2.png",
       "sizes": "540x1170",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Event Passes, Stalls, Auditions & Social Channels"
     },
     {
-      "src": "./images/screenshots/screenshot-desktop-1.png",
+      "src": "https://crystal-studio-labs.github.io/OAC-Linktree/images/screenshots/screenshot-desktop-1.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "wide",

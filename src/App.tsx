@@ -6,23 +6,14 @@ import LinkCard from './components/LinkCard';
 import Footer from './components/Footer';
 import QRCodeModal from './components/QRCodeModal';
 import ShareModal from './components/ShareModal';
-import InstallModal from './components/InstallModal';
 import Toast from './components/Toast';
 import { LINK_ITEMS } from './data/links';
 import { getAssetUrl } from './utils/assets';
-import { Eye, EyeOff, Radio, Sparkles, Download } from 'lucide-react';
-
-interface BeforeInstallPromptEvent extends Event {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
-}
+import { Eye, EyeOff, Radio, Sparkles } from 'lucide-react';
 
 export default function App() {
   const [qrModalOpen, setQrModalOpen] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
-  const [installModalOpen, setInstallModalOpen] = useState(false);
-  const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
-  const [isStandalone, setIsStandalone] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [particlesEnabled, setParticlesEnabled] = useState(true);
   const [currentUrl, setCurrentUrl] = useState('https://joinoac.in');
@@ -31,29 +22,6 @@ export default function App() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setCurrentUrl(window.location.href);
-
-      // Check if already running in standalone / installed PWA mode
-      const isStandaloneMode =
-        window.matchMedia('(display-mode: standalone)').matches ||
-        (window.navigator as unknown as { standalone?: boolean }).standalone === true;
-      if (isStandaloneMode) {
-        setIsStandalone(true);
-      }
-
-      // Capture Chromium beforeinstallprompt event for Richer Install UI
-      const handleBeforeInstallPrompt = (e: Event) => {
-        e.preventDefault();
-        setInstallPrompt(e as BeforeInstallPromptEvent);
-      };
-
-      const handleAppInstalled = () => {
-        setIsStandalone(true);
-        setInstallPrompt(null);
-        showToast('OAC App installed successfully!');
-      };
-
-      window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-      window.addEventListener('appinstalled', handleAppInstalled);
 
       // Custom shortcut redirect support (e.g. ?go=tickets or ?go=discord)
       const params = new URLSearchParams(window.location.search);
@@ -73,38 +41,8 @@ export default function App() {
           }, 800);
         }
       }
-
-      // Scroll to Y offset if requested (useful for automated screenshot capture)
-      const scrollY = params.get('scrollY');
-      if (scrollY) {
-        setTimeout(() => {
-          window.scrollTo({ top: parseInt(scrollY, 10), behavior: 'instant' });
-        }, 300);
-      }
-
-      return () => {
-        window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-        window.removeEventListener('appinstalled', handleAppInstalled);
-      };
     }
   }, []);
-
-  const handleInstallClick = async () => {
-    if (installPrompt) {
-      try {
-        await installPrompt.prompt();
-        const choice = await installPrompt.userChoice;
-        if (choice?.outcome === 'accepted') {
-          setInstallPrompt(null);
-        }
-      } catch (err) {
-        console.error('Error opening install prompt:', err);
-        setInstallModalOpen(true);
-      }
-    } else {
-      setInstallModalOpen(true);
-    }
-  };
 
   const showToast = (message: string) => {
     setToastMessage(message);
@@ -174,22 +112,8 @@ export default function App() {
           </div>
         </a>
 
-        {/* Header Action Controls */}
+        {/* Ambient VFX Toggle */}
         <div className="flex items-center gap-2">
-          {/* PWA Install Button (automatically hidden once app is installed) */}
-          {!isStandalone && (
-            <button
-              onClick={handleInstallClick}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.09] border border-[#F3B334]/30 hover:border-[#F3B334]/60 text-xs text-[#F3B334] hover:text-white transition-all active:scale-95 shadow-sm min-h-[36px]"
-              title="Install OAC Web App"
-              aria-label="Install OAC Web App"
-            >
-              <Download className="w-3.5 h-3.5 text-[#F3B334]" />
-              <span className="text-[11px] font-semibold hidden xs:inline">Install App</span>
-            </button>
-          )}
-
-          {/* Ambient VFX Toggle */}
           <button
             onClick={() => setParticlesEnabled(!particlesEnabled)}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.09] border border-white/10 hover:border-white/20 text-xs text-gray-300 transition-all active:scale-95 shadow-sm min-h-[36px]"
@@ -255,14 +179,6 @@ export default function App() {
         url={currentUrl}
         title="Odisha Anime Community | Official Passes & Links"
         onShowToast={showToast}
-      />
-
-      {/* PWA Install Modal */}
-      <InstallModal
-        isOpen={installModalOpen}
-        onClose={() => setInstallModalOpen(false)}
-        onNativeInstall={handleInstallClick}
-        hasNativePrompt={!!installPrompt}
       />
 
       {/* Toast feedback */}
