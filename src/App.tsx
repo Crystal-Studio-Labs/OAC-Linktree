@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ParticleBackground from './components/ParticleBackground';
 import ProfileHero from './components/ProfileHero';
 import SocialLinks from './components/SocialLinks';
+import EventCountdown from './components/EventCountdown';
 import LinkCard from './components/LinkCard';
 import Footer from './components/Footer';
 import QRCodeModal from './components/QRCodeModal';
@@ -154,6 +155,9 @@ export default function App() {
           aria-label="Community Passes and Links"
           className="w-full space-y-3.5 mt-2"
         >
+          {/* Live Event Countdown Ticker for OCD 2026 */}
+          <EventCountdown />
+
           {LINK_ITEMS.map((link, index) => (
             <LinkCard key={link.id} link={link} index={index} />
           ))}
