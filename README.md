@@ -1,5 +1,9 @@
 <div align="center">
 
+<a href="https://joinoac.in" target="_blank" rel="noopener noreferrer">
+  <img src="./public/images/oac-logo-transparent.png" alt="Odisha Anime Community Official Logo" width="220" />
+</a>
+
 # ⛩️ Odisha Anime Community (OAC) — Official Link Hub
 
 [![Vite](https://img.shields.io/badge/Vite-6.4.5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -10,10 +14,6 @@
 [![License](https://img.shields.io/badge/License-Source--Available-red?style=for-the-badge)](LICENSE)
 
 <br />
-
-<img src="./public/images/og-preview.jpg" alt="Odisha Anime Community Official Hub Preview" width="100%" style="border-radius: 16px; border: 1px solid rgba(243, 179, 52, 0.3); box-shadow: 0 0 40px rgba(217, 21, 21, 0.25);" />
-
-<br /><br />
 
 **The definitive, high-performance digital link portal and Linktree alternative engineered for the Odisha Anime Community (OAC).**  
 *Built with ❤️ for Odisha Anime Community by [Crystal Studio Labs](https://github.com/Crystal-Studio-Labs).*
