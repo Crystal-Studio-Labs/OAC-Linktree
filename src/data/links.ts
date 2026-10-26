@@ -20,7 +20,17 @@ export const OFFICIAL_PROFILE = {
   ],
 };
 
+// Social icon bar order: Website -> Instagram -> WhatsApp -> Discord -> YouTube -> Email
 export const SOCIAL_LINKS: SocialLink[] = [
+  {
+    id: 'website',
+    name: 'Website',
+    url: 'https://joinoac.in',
+    icon: 'Globe',
+    handle: 'joinoac.in',
+    color: '#F3B334',
+    hoverBg: 'hover:bg-[#F3B334]/20 hover:border-[#F3B334]',
+  },
   {
     id: 'instagram',
     name: 'Instagram',
@@ -58,15 +68,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
     hoverBg: 'hover:bg-[#FF0000]/20 hover:border-[#FF0000]',
   },
   {
-    id: 'website',
-    name: 'Website',
-    url: 'https://joinoac.in',
-    icon: 'Globe',
-    handle: 'joinoac.in',
-    color: '#F3B334',
-    hoverBg: 'hover:bg-[#F3B334]/20 hover:border-[#F3B334]',
-  },
-  {
     id: 'email',
     name: 'Email Us',
     url: 'mailto:info@joinoac.in',
@@ -77,7 +78,9 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
 ];
 
+// Order: 1. Featured Otaku -> 2. Featured Halloween -> 3. Forms -> 4. Socials (Website, Instagram, WhatsApp, Discord, YouTube)
 export const LINK_ITEMS: LinkItem[] = [
+  // 1. Featured Flagship: Otaku Community Day 2026 Tickets
   {
     id: 'ocd-tickets-2026',
     title: 'Otaku Community Day 2026 Tickets',
@@ -91,6 +94,8 @@ export const LINK_ITEMS: LinkItem[] = [
     actionText: 'Book Tickets',
     iconName: 'Ticket',
   },
+
+  // 2. Featured Special: Coslabs Halloween Party 2026
   {
     id: 'coslabs-halloween-2026',
     title: 'Coslabs Halloween Party 2026 - Book Tickets',
@@ -99,11 +104,13 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🎃 HALLOWEEN SPECIAL',
     badgeColor: 'purple',
     thumbnailUrl: '/images/coslabs-halloween.png',
-    isFeatured: false,
-    highlightGlow: false,
+    isFeatured: true,
+    highlightGlow: true,
     actionText: 'Get Passes',
     iconName: 'Sparkles',
   },
+
+  // 3. Application Forms
   {
     id: 'ocd-talent-hunt',
     title: 'OTAKU COMMUNITY DAY TALENT HUNT',
@@ -143,6 +150,28 @@ export const LINK_ITEMS: LinkItem[] = [
     actionText: 'Join Volunteer Crew',
     iconName: 'Users',
   },
+
+  // 4. Social & Community Links: Website -> Instagram -> WhatsApp -> Discord -> YouTube
+  {
+    id: 'oac-website',
+    title: 'Visit Official Website (joinoac.in)',
+    subtitle: 'Explore our full photo gallery, club history, partner collaborations, and upcoming roadmap.',
+    url: 'https://joinoac.in',
+    badge: '🌐 OFFICIAL HUB',
+    badgeColor: 'gold',
+    actionText: 'Visit joinoac.in',
+    iconName: 'Globe',
+  },
+  {
+    id: 'oac-instagram',
+    title: 'Follow on Instagram (@odisha.anime.community)',
+    subtitle: 'Daily reels, event teasers, cosplay showcases, and community art spotlights.',
+    url: 'https://www.instagram.com/odisha.anime.community/',
+    badge: '📸 REELS & ART',
+    badgeColor: 'purple',
+    actionText: 'Follow Instagram',
+    iconName: 'Instagram',
+  },
   {
     id: 'oac-whatsapp',
     title: 'Join OAC WhatsApp Community',
@@ -164,13 +193,13 @@ export const LINK_ITEMS: LinkItem[] = [
     iconName: 'MessageSquare',
   },
   {
-    id: 'oac-website',
-    title: 'Visit Official Website (joinoac.in)',
-    subtitle: 'Explore our full photo gallery, club history, partner collaborations, and upcoming roadmap.',
-    url: 'https://joinoac.in',
-    badge: '🌐 OFFICIAL HUB',
-    badgeColor: 'gold',
-    actionText: 'Visit joinoac.in',
-    iconName: 'Globe',
+    id: 'oac-youtube',
+    title: 'Subscribe on YouTube (@OdishaAnimeClub)',
+    subtitle: 'Event recaps, aftermovies, anime dance performances, and cosplay interviews.',
+    url: 'https://www.youtube.com/@OdishaAnimeClub',
+    badge: '📺 VIDEOS & RECAPS',
+    badgeColor: 'red',
+    actionText: 'Subscribe YouTube',
+    iconName: 'Youtube',
   },
 ];
