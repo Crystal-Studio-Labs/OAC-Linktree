@@ -38,7 +38,7 @@ export default function SocialLinks({ }: SocialLinksProps) {
   };
 
   return (
-    <div className="flex items-center justify-center gap-2.5 sm:gap-3 flex-wrap">
+    <div className="flex items-center justify-center gap-2 xs:gap-2.5 sm:gap-3 flex-wrap px-1">
       {SOCIAL_LINKS.map((item) => (
         <a
           key={item.id}
@@ -47,7 +47,7 @@ export default function SocialLinks({ }: SocialLinksProps) {
           rel="noopener noreferrer"
           aria-label={item.name}
           title={item.name}
-          className={`group relative p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-transparent transition-all duration-300 hover:scale-110 active:scale-95 backdrop-blur-md ${item.hoverBg}`}
+          className={`group relative p-2.5 xs:p-3 min-w-[42px] min-h-[42px] xs:min-w-[46px] xs:min-h-[46px] flex items-center justify-center rounded-xl bg-white/[0.04] border border-white/10 hover:border-transparent transition-all duration-300 hover:scale-110 active:scale-95 backdrop-blur-md ${item.hoverBg}`}
         >
           {renderIcon(item.id)}
           <span className="sr-only">{item.name}</span>

@@ -54,14 +54,14 @@ export default function App() {
   // If executing a direct shortcut redirect (?go=...)
   if (redirectingTo) {
     return (
-      <div className="min-h-screen bg-[#0C0C0C] flex flex-col items-center justify-center text-center p-6 text-white relative overflow-hidden">
-        <div className="w-20 h-20 rounded-full border-2 border-[#D91515] p-2 flex items-center justify-center animate-spin-slow mb-4 shadow-glow-red">
-          <Sparkles className="w-8 h-8 text-[#F3B334]" />
+      <div className="min-h-screen min-h-[100dvh] bg-[#0C0C0C] flex flex-col items-center justify-center text-center p-4 xs:p-6 text-white relative overflow-hidden">
+        <div className="w-16 h-16 xs:w-20 xs:h-20 rounded-full border-2 border-[#D91515] p-2 flex items-center justify-center animate-spin-slow mb-4 shadow-glow-red">
+          <Sparkles className="w-7 h-7 xs:w-8 xs:h-8 text-[#F3B334]" />
         </div>
-        <h2 className="font-display text-3xl text-white tracking-wide">
+        <h2 className="font-display text-2xl xs:text-3xl text-white tracking-wide">
           WARPING TO DESTINATION
         </h2>
-        <p className="text-sm text-gray-400 mt-2">
+        <p className="text-xs xs:text-sm text-gray-400 mt-2">
           Redirecting to <span className="text-[#F3B334] font-semibold">{redirectingTo}</span>...
         </p>
       </div>
@@ -69,7 +69,7 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#0C0C0C] text-[#F5F5F5] overflow-x-hidden selection:bg-[#D91515]/40 selection:text-[#F3B334]">
+    <div className="relative min-h-screen min-h-[100dvh] bg-[#0C0C0C] text-[#F5F5F5] overflow-x-hidden selection:bg-[#D91515]/40 selection:text-[#F3B334] flex flex-col">
       {/* Background Image & Effects - Matched with Main Website Hero */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <img
@@ -93,20 +93,20 @@ export default function App() {
       {particlesEnabled && <ParticleBackground />}
 
       {/* Top Floating Header & Live Status */}
-      <header className="relative z-10 max-w-xl mx-auto px-4 pt-4 flex items-center justify-between">
+      <header className="relative z-10 w-full max-w-xl mx-auto px-3.5 sm:px-6 pt-3 sm:pt-4 flex items-center justify-between">
         <a
           href="https://joinoac.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 group p-1.5 rounded-full hover:bg-white/[0.04] transition-all"
+          className="inline-flex items-center gap-2 group p-1.5 rounded-full hover:bg-white/[0.04] transition-all min-h-[40px]"
           title="Visit Official Website (joinoac.in)"
         >
           <img
             src={getAssetUrl('/images/oac-logo-transparent.png')}
             alt="OAC"
-            className="w-12 h-7 object-contain group-hover:scale-105 transition-transform"
+            className="w-10 xs:w-12 h-6 xs:h-7 object-contain group-hover:scale-105 transition-transform"
           />
-          <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-gray-400 group-hover:text-[#F3B334] transition-colors">
+          <div className="hidden xs:flex items-center gap-1.5 text-[11px] font-mono text-gray-400 group-hover:text-[#F3B334] transition-colors">
             <Radio className="w-3 h-3 text-[#D91515] animate-pulse" />
             <span>joinoac.in</span>
           </div>
@@ -116,19 +116,19 @@ export default function App() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setParticlesEnabled(!particlesEnabled)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.09] border border-white/10 hover:border-white/20 text-xs text-gray-300 transition-all active:scale-95 shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.09] border border-white/10 hover:border-white/20 text-xs text-gray-300 transition-all active:scale-95 shadow-sm min-h-[36px]"
             title={particlesEnabled ? 'Turn off particle VFX' : 'Turn on particle VFX'}
             aria-label="Toggle background particle animation"
           >
             {particlesEnabled ? (
               <>
                 <Eye className="w-3.5 h-3.5 text-[#F3B334] animate-pulse" />
-                <span className="text-[11px] font-medium hidden sm:inline text-gray-200">VFX: On</span>
+                <span className="text-[11px] font-medium hidden xs:inline text-gray-200">VFX: On</span>
               </>
             ) : (
               <>
                 <EyeOff className="w-3.5 h-3.5 text-gray-500" />
-                <span className="text-[11px] font-medium hidden sm:inline text-gray-400">VFX: Off</span>
+                <span className="text-[11px] font-medium hidden xs:inline text-gray-400">VFX: Off</span>
               </>
             )}
           </button>
@@ -136,7 +136,7 @@ export default function App() {
       </header>
 
       {/* Main Container */}
-      <main className="relative z-10 max-w-xl mx-auto px-4 sm:px-6 pb-12 flex flex-col items-center">
+      <main className="relative z-10 w-full max-w-xl mx-auto px-3.5 sm:px-6 pb-12 flex-1 flex flex-col items-center">
         {/* Profile Hero Section with Japanese Typing Animation */}
         <ProfileHero
           onOpenQR={() => setQrModalOpen(true)}
