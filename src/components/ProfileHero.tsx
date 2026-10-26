@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Check, QrCode, Share2, Sparkles, MapPin, Calendar } from 'lucide-react';
-import { OFFICIAL_PROFILE } from '../data/links';
+import { OFFICIAL_PROFILE, COMMUNITY_TRANSLATIONS } from '../data/links';
 import { getAssetUrl } from '../utils/assets';
 
 interface ProfileHeroProps {
@@ -9,43 +9,71 @@ interface ProfileHeroProps {
   onShowToast: (msg: string) => void;
 }
 
-export default function ProfileHero({ onOpenQR, onOpenShare, onShowToast }: ProfileHeroProps) {
-  const fullJapaneseText = OFFICIAL_PROFILE.japaneseName;
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [index, setIndex] = useState(0);
+/**
+ * Safely extracts human-visible grapheme clusters for Unicode text.
+ * Prevents broken combining marks, matras, and dotted circles in Indic (Odia/Hindi/Bengali)
+ * or CJK scripts during typewriter slicing and deletion.
+ */
+function getGraphemes(text: string): string[] {
+  const intlAny = Intl as unknown as {
+    Segmenter?: new (locale: string, options: { granularity: string }) => {
+      segment: (input: string) => Iterable<{ segment: string }>;
+    };
+  };
 
-  // Typing animation effect for オディシャ・アニメ・コミュニティ
+  if (typeof intlAny.Segmenter === 'function') {
+    const segmenter = new intlAny.Segmenter('und', { granularity: 'grapheme' });
+    return Array.from(segmenter.segment(text), (s) => s.segment);
+  }
+  return Array.from(text);
+}
+
+export default function ProfileHero({ onOpenQR, onOpenShare, onShowToast }: ProfileHeroProps) {
+  const [langIndex, setLangIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const currentTranslation = COMMUNITY_TRANSLATIONS[langIndex] || COMMUNITY_TRANSLATIONS[0];
+  const clusters = useMemo(() => getGraphemes(currentTranslation.text), [currentTranslation.text]);
+
+  // Multi-Language Typing Animation with Grapheme-Aware Transitions
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
 
-    if (!isDeleting && index <= fullJapaneseText.length) {
-      // Typing characters
-      timeout = setTimeout(() => {
-        setDisplayText(fullJapaneseText.slice(0, index));
-        setIndex((prev) => prev + 1);
-      }, 120);
-    } else if (!isDeleting && index > fullJapaneseText.length) {
-      // Pause at full text
-      timeout = setTimeout(() => {
-        setIsDeleting(true);
-      }, 3500);
-    } else if (isDeleting && index > 0) {
-      // Deleting characters
-      timeout = setTimeout(() => {
-        setIndex((prev) => prev - 1);
-        setDisplayText(fullJapaneseText.slice(0, index - 1));
-      }, 60);
-    } else if (isDeleting && index === 0) {
-      // Pause before re-typing
-      timeout = setTimeout(() => {
-        setIsDeleting(false);
-        setIndex(1);
-      }, 600);
+    if (!isDeleting) {
+      if (charIndex < clusters.length) {
+        // Typing forward: ~85ms per grapheme cluster
+        timeout = setTimeout(() => {
+          setCharIndex((prev) => prev + 1);
+        }, 85);
+      } else {
+        // Pause at full text: ~2800ms to appreciate each language
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2800);
+      }
+    } else {
+      if (charIndex > 0) {
+        // Deleting backward: ~35ms per grapheme cluster
+        timeout = setTimeout(() => {
+          setCharIndex((prev) => prev - 1);
+        }, 35);
+      } else {
+        // Pause briefly on empty string (~350ms) before cycling to next language
+        timeout = setTimeout(() => {
+          setIsDeleting(false);
+          setLangIndex((prev) => (prev + 1) % COMMUNITY_TRANSLATIONS.length);
+        }, 350);
+      }
     }
 
     return () => clearTimeout(timeout);
-  }, [index, isDeleting, fullJapaneseText]);
+  }, [charIndex, isDeleting, clusters.length]);
+
+  const displayText = useMemo(
+    () => clusters.slice(0, charIndex).join(''),
+    [clusters, charIndex]
+  );
 
   const handleCopyLink = () => {
     const currentUrl = typeof window !== 'undefined' ? window.location.href : 'https://joinoac.in';
@@ -102,12 +130,23 @@ export default function ProfileHero({ onOpenQR, onOpenShare, onShowToast }: Prof
         </div>
       </div>
 
-      {/* Japanese Subtitle with Typing Animation & Blinking Neon Cursor */}
-      <div className="h-6 flex items-center justify-center mb-1 max-w-full px-2">
-        <span className="text-xs xs:text-[13px] font-japanese font-semibold tracking-[0.16em] xs:tracking-[0.25em] text-[#F3B334] uppercase drop-shadow-sm truncate">
+      {/* Multi-Language Subtitle with Typing Animation & Blinking Neon Cursor */}
+      <div
+        className="h-7 min-h-[28px] flex items-center justify-center mb-1 max-w-full px-2"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <span
+          lang={currentTranslation.code}
+          className="text-xs xs:text-[13px] font-semibold tracking-[0.12em] xs:tracking-[0.18em] text-[#F3B334] drop-shadow-sm truncate select-none"
+          title={`${currentTranslation.lang} (${currentTranslation.nativeName})`}
+        >
           {displayText}
         </span>
-        <span className="inline-block w-1.5 h-3.5 xs:h-4 ml-1 bg-[#D91515] animate-pulse rounded-sm flex-shrink-0" />
+        <span
+          aria-hidden="true"
+          className="inline-block w-1.5 h-3.5 xs:h-4 ml-1 bg-[#D91515] animate-pulse rounded-sm flex-shrink-0"
+        />
       </div>
 
       {/* Main Title with Fire Gradient */}

@@ -21,3 +21,10 @@ export interface SocialLink {
   color: string;
   hoverBg: string;
 }
+
+export interface CommunityTranslation {
+  text: string;
+  lang: string;
+  nativeName: string;
+  code: string;
+}

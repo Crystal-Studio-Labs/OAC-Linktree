@@ -1,4 +1,4 @@
-import { LinkItem, SocialLink } from '../types';
+import { LinkItem, SocialLink, CommunityTranslation } from '../types';
 
 export const OFFICIAL_PROFILE = {
   name: 'Odisha Anime Community',
@@ -19,6 +19,86 @@ export const OFFICIAL_PROFILE = {
     { label: 'Cosplay', icon: '🧵' },
   ],
 };
+
+/**
+ * Authentic, culturally curated translations of "Odisha Anime Community"
+ * for the dynamic hero typewriter animation.
+ * Cycles smoothly through key languages honoring global & native anime culture.
+ */
+export const COMMUNITY_TRANSLATIONS: CommunityTranslation[] = [
+  {
+    text: 'オディシャ・アニメ・コミュニティ',
+    lang: 'Japanese',
+    nativeName: '日本語',
+    code: 'ja',
+  },
+  {
+    text: 'ଓଡ଼ିଶା ଆନିମେ କମ୍ୟୁନିଟି',
+    lang: 'Odia',
+    nativeName: 'ଓଡ଼ିଆ',
+    code: 'or',
+  },
+  {
+    text: 'Odisha Anime Community',
+    lang: 'English',
+    nativeName: 'English',
+    code: 'en',
+  },
+  {
+    text: 'ओडिशा एनिमे कम्युनिटी',
+    lang: 'Hindi',
+    nativeName: 'हिन्दी',
+    code: 'hi',
+  },
+  {
+    text: '오디샤 애니메 커뮤니티',
+    lang: 'Korean',
+    nativeName: '한국어',
+    code: 'ko',
+  },
+  {
+    text: '奧迪沙動漫社群',
+    lang: 'Traditional Chinese',
+    nativeName: '繁體中文',
+    code: 'zh-Hant',
+  },
+  {
+    text: 'Comunidad de Anime de Odisha',
+    lang: 'Spanish',
+    nativeName: 'Español',
+    code: 'es',
+  },
+  {
+    text: 'Communauté Anime d\'Odisha',
+    lang: 'French',
+    nativeName: 'Français',
+    code: 'fr',
+  },
+  {
+    text: 'ওড়িশা অ্যানিমে কমিউনিটি',
+    lang: 'Bengali',
+    nativeName: 'বাংলা',
+    code: 'bn',
+  },
+  {
+    text: 'Odisha Anime-Gemeinschaft',
+    lang: 'German',
+    nativeName: 'Deutsch',
+    code: 'de',
+  },
+  {
+    text: 'Одиша Аниме Сообщество',
+    lang: 'Russian',
+    nativeName: 'Русский',
+    code: 'ru',
+  },
+  {
+    text: 'Comunità Anime di Odisha',
+    lang: 'Italian',
+    nativeName: 'Italiano',
+    code: 'it',
+  },
+];
 
 // Social icon bar order: Website -> Instagram -> WhatsApp -> Discord -> YouTube -> Email
 export const SOCIAL_LINKS: SocialLink[] = [

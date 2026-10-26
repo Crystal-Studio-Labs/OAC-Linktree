@@ -23,7 +23,7 @@ export default {
       },
       fontFamily: {
         display: ['"Bebas Neue"', 'sans-serif'],
-        sans: ['Outfit', 'sans-serif'],
+        sans: ['Outfit', '"Noto Sans JP"', '"Nirmala UI"', 'system-ui', 'sans-serif'],
         japanese: ['"Noto Sans JP"', 'sans-serif'],
       },
       boxShadow: {
