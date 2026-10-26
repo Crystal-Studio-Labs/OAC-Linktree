@@ -170,6 +170,7 @@ OAC-Linktree/
 │   │   └── og-preview.png      # High-res Open Graph banner
 │   ├── llms.txt                # AI agent instructions (public mirror)
 │   └── llm.txt                 # AI agent instructions (compat alias)
+├── docs/                       # Pre-compiled static release for GitHub Pages (/docs)
 ├── src/
 │   ├── components/
 │   │   ├── Footer.tsx          # Community-only white-label footer
@@ -224,15 +225,22 @@ For responsible disclosure, please consult [`SECURITY.md`](SECURITY.md).
 
 ---
 
-## 🌐 1-Click GitHub Pages Deployment
+## 🌐 GitHub Pages Deployment Guide
 
-The repository includes an automated GitHub Actions deployment workflow at [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
+The repository supports dual automated deployment workflows:
 
-1. Push your changes to the `main` branch.
-2. In your GitHub repository:
-   - Go to **Settings** > **Pages**.
-   - Under **Build and deployment** > **Source**, choose **GitHub Actions**.
-3. Every commit to `main` will automatically build and publish the live site.
+### Method 1: GitHub Actions (Recommended)
+1. In your GitHub repository, navigate to **Settings** > **Pages**.
+2. Under **Build and deployment** > **Source**, choose **GitHub Actions** from the dropdown.
+3. Every commit pushed to `main` automatically builds and deploys `./dist` via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+### Method 2: Deploy from Branch (Instant Zero-Config Fallback)
+1. In your GitHub repository, navigate to **Settings** > **Pages**.
+2. Under **Build and deployment** > **Source**, choose **Deploy from a branch**.
+3. Under **Branch**, select either:
+   - **`gh-pages`** and folder **`/ (root)`**, OR
+   - **`main`** and folder **`/docs`**.
+4. Click **Save**. GitHub Pages will immediately serve the pre-compiled production build.
 
 ### Custom Domain Configuration
 To bind a custom domain (e.g. `links.joinoac.in`):
