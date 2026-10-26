@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, Ticket, Sparkles, Mic, Store, Users, MessageCircle, MessageSquare, Globe, ExternalLink, Loader2 } from 'lucide-react';
+import { ArrowUpRight, Ticket, Sparkles, Mic, Store, Users, MessageCircle, MessageSquare, Globe, ExternalLink, Loader2, Instagram, Youtube } from 'lucide-react';
 import { LinkItem } from '../types';
 import { getAssetUrl } from '../utils/assets';
 
@@ -45,6 +45,10 @@ export default function LinkCard({ link, index }: LinkCardProps) {
         return <MessageSquare className="w-5 h-5 text-blue-400" />;
       case 'Globe':
         return <Globe className="w-5 h-5 text-[#F3B334]" />;
+      case 'Instagram':
+        return <Instagram className="w-5 h-5 text-[#E1306C]" />;
+      case 'Youtube':
+        return <Youtube className="w-5 h-5 text-[#FF0000]" />;
       default:
         return <ExternalLink className="w-5 h-5 text-gray-400" />;
     }
