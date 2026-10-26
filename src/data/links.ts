@@ -190,7 +190,35 @@ export const LINK_ITEMS: LinkItem[] = [
     iconName: 'Sparkles',
   },
 
-  // 3. Application Forms
+  // 3. Featured Esports Tournaments (Under Coslabs Halloween Party)
+  {
+    id: 'mortal-kombat-showdown-ps5',
+    title: 'MORTAL KOMBAT SHOWDOWN — PS5 TOURNAMENT',
+    subtitle: 'Enter the fighting arena on PlayStation 5! 1v1 bracket tournament, combat rules & championship prizes.',
+    url: 'https://forms.gle/iCfGiVAbJoabjAwQ9',
+    badge: '🎮 PS5 ESPORTS',
+    badgeColor: 'red',
+    thumbnailUrl: '/images/mortal-kombat-ps5.jpg',
+    isFeatured: false,
+    highlightGlow: true,
+    actionText: 'Register Tournament',
+    iconName: 'Gamepad2',
+  },
+  {
+    id: 'otakus-arena-free-fire-2026',
+    title: 'OTAKUS ARENA × OAC — FREE FIRE BR CHAMPIONSHIP 2026',
+    subtitle: 'Drop in and survive the circle! Squad Battle Royale tournament with cash prizes, live casting & champion trophy.',
+    url: 'https://forms.gle/QQgw9MBkaHYXBBRG6',
+    badge: '🏆 BATTLE ROYALE CUP',
+    badgeColor: 'gold',
+    thumbnailUrl: '/images/free-fire-championship.jpg',
+    isFeatured: false,
+    highlightGlow: true,
+    actionText: 'Register Squad',
+    iconName: 'Trophy',
+  },
+
+  // 4. Application Forms
   {
     id: 'ocd-talent-hunt',
     title: 'OTAKU COMMUNITY DAY TALENT HUNT',
