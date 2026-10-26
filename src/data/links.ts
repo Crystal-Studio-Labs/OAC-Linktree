@@ -158,7 +158,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
 ];
 
-// Order: 1. Featured Otaku -> 2. Featured Halloween -> 3. Forms -> 4. Socials (Website, Instagram, WhatsApp, Discord, YouTube)
+// Official Links & Registrations: All 7 items are high-impact featured cards
 export const LINK_ITEMS: LinkItem[] = [
   // 1. Featured Flagship: Otaku Community Day 2026 Tickets
   {
@@ -190,7 +190,7 @@ export const LINK_ITEMS: LinkItem[] = [
     iconName: 'Sparkles',
   },
 
-  // 3. Featured Esports Tournaments (Under Coslabs Halloween Party)
+  // 3. Featured Esports Tournament: Mortal Kombat Showdown PS5
   {
     id: 'mortal-kombat-showdown-ps5',
     title: 'MORTAL KOMBAT SHOWDOWN — PS5 TOURNAMENT',
@@ -199,11 +199,13 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🎮 PS5 ESPORTS',
     badgeColor: 'red',
     thumbnailUrl: '/images/mortal-kombat-ps5.jpg',
-    isFeatured: false,
+    isFeatured: true,
     highlightGlow: true,
     actionText: 'Register Tournament',
     iconName: 'Gamepad2',
   },
+
+  // 4. Featured Esports Tournament: Free Fire BR Championship
   {
     id: 'otakus-arena-free-fire-2026',
     title: 'OTAKUS ARENA × OAC — FREE FIRE BR CHAMPIONSHIP 2026',
@@ -212,13 +214,13 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🏆 BATTLE ROYALE CUP',
     badgeColor: 'gold',
     thumbnailUrl: '/images/free-fire-championship.jpg',
-    isFeatured: false,
+    isFeatured: true,
     highlightGlow: true,
     actionText: 'Register Squad',
     iconName: 'Trophy',
   },
 
-  // 4. Application Forms
+  // 5. Featured Applications: Talent Hunt
   {
     id: 'ocd-talent-hunt',
     title: 'OTAKU COMMUNITY DAY TALENT HUNT',
@@ -227,11 +229,13 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🌟 STAGE & AUDITIONS',
     badgeColor: 'gold',
     thumbnailUrl: '/images/ocd-talent-hunt.jpg',
-    isFeatured: false,
-    highlightGlow: false,
+    isFeatured: true,
+    highlightGlow: true,
     actionText: 'Apply Now',
     iconName: 'Mic',
   },
+
+  // 6. Featured Applications: Vendors & Stalls
   {
     id: 'ocd-vendor-applications',
     title: 'OTAKU COMMUNITY DAY Vendor & Stall Applications',
@@ -240,11 +244,13 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🛍️ STALLS & MERCH',
     badgeColor: 'emerald',
     thumbnailUrl: '/images/ocd-stalls.jpg',
-    isFeatured: false,
-    highlightGlow: false,
+    isFeatured: true,
+    highlightGlow: true,
     actionText: 'Register Stall',
     iconName: 'Store',
   },
+
+  // 7. Featured Applications: OAC Crew Volunteer
   {
     id: 'oac-crew-volunteer',
     title: '🔥 OAC CREW 001 — VOLUNTEER APPLICATIONS OPEN!',
@@ -253,66 +259,9 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🤝 JOIN THE CREW',
     badgeColor: 'red',
     thumbnailUrl: '/images/oac-crew.png',
-    isFeatured: false,
+    isFeatured: true,
     highlightGlow: true,
     actionText: 'Join Volunteer Crew',
     iconName: 'Users',
-  },
-
-  // 4. Social & Community Links: Website -> Instagram -> WhatsApp -> Discord -> YouTube
-  {
-    id: 'oac-website',
-    title: 'Visit Official Website (joinoac.in)',
-    subtitle: 'Explore our full photo gallery, club history, partner collaborations, and upcoming roadmap.',
-    url: 'https://joinoac.in',
-    badge: '🌐 OFFICIAL HUB',
-    badgeColor: 'gold',
-    thumbnailUrl: '/images/oac-website.png',
-    actionText: 'Visit joinoac.in',
-    iconName: 'Globe',
-  },
-  {
-    id: 'oac-instagram',
-    title: 'Follow on Instagram (@odisha.anime.community)',
-    subtitle: 'Daily reels, event teasers, cosplay showcases, and community art spotlights.',
-    url: 'https://www.instagram.com/odisha.anime.community/',
-    badge: '📸 REELS & ART',
-    badgeColor: 'purple',
-    thumbnailUrl: '/images/oac-instagram.jpg',
-    actionText: 'Follow Instagram',
-    iconName: 'Instagram',
-  },
-  {
-    id: 'oac-whatsapp',
-    title: 'Join OAC WhatsApp Community',
-    subtitle: 'Daily chats, meetups, announcement alerts, and spontaneous anime discussions.',
-    url: 'https://chat.whatsapp.com/DtaCCgJyOGqIZu3P3n3J7r',
-    badge: '💬 ACTIVE CHATS',
-    badgeColor: 'emerald',
-    thumbnailUrl: '/images/oac-whatsapp.jpg',
-    actionText: 'Open WhatsApp',
-    iconName: 'MessageCircle',
-  },
-  {
-    id: 'oac-discord',
-    title: 'Join OAC Discord Server',
-    subtitle: 'Gaming sessions, watch parties, cosplay voice channels, and bot games with 5000+ members.',
-    url: 'https://discord.gg/VnUDQh4yJv',
-    badge: '🎮 VOICE & GAMING',
-    badgeColor: 'blue',
-    thumbnailUrl: '/images/oac-discord-tile.png',
-    actionText: 'Join Discord',
-    iconName: 'MessageSquare',
-  },
-  {
-    id: 'oac-youtube',
-    title: 'Subscribe on YouTube (@OdishaAnimeClub)',
-    subtitle: 'Event recaps, aftermovies, anime dance performances, and cosplay interviews.',
-    url: 'https://www.youtube.com/@OdishaAnimeClub',
-    badge: '📺 VIDEOS & RECAPS',
-    badgeColor: 'red',
-    thumbnailUrl: '/images/oac-youtube.jpg',
-    actionText: 'Subscribe YouTube',
-    iconName: 'Youtube',
   },
 ];
