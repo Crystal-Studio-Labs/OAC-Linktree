@@ -158,7 +158,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
 ];
 
-// Official Links & Registrations: All 7 items are high-impact featured cards
+// Official Links & Registrations: First two are flagship featured cards, followed by application forms
 export const LINK_ITEMS: LinkItem[] = [
   // 1. Featured Flagship: Otaku Community Day 2026 Tickets
   {
@@ -190,7 +190,7 @@ export const LINK_ITEMS: LinkItem[] = [
     iconName: 'Sparkles',
   },
 
-  // 3. Featured Esports Tournament: Mortal Kombat Showdown PS5
+  // 3. Esports Tournament: Mortal Kombat Showdown PS5
   {
     id: 'mortal-kombat-showdown-ps5',
     title: 'MORTAL KOMBAT SHOWDOWN — PS5 TOURNAMENT',
@@ -199,13 +199,13 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🎮 PS5 ESPORTS',
     badgeColor: 'red',
     thumbnailUrl: '/images/mortal-kombat-ps5.jpg',
-    isFeatured: true,
+    isFeatured: false,
     highlightGlow: true,
     actionText: 'Register Tournament',
     iconName: 'Gamepad2',
   },
 
-  // 4. Featured Esports Tournament: Free Fire BR Championship
+  // 4. Esports Tournament: Free Fire BR Championship
   {
     id: 'otakus-arena-free-fire-2026',
     title: 'OTAKUS ARENA × OAC — FREE FIRE BR CHAMPIONSHIP 2026',
@@ -214,13 +214,13 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🏆 BATTLE ROYALE CUP',
     badgeColor: 'gold',
     thumbnailUrl: '/images/free-fire-championship.jpg',
-    isFeatured: true,
+    isFeatured: false,
     highlightGlow: true,
     actionText: 'Register Squad',
     iconName: 'Trophy',
   },
 
-  // 5. Featured Applications: Talent Hunt
+  // 5. Applications: Talent Hunt
   {
     id: 'ocd-talent-hunt',
     title: 'OTAKU COMMUNITY DAY TALENT HUNT',
@@ -229,13 +229,13 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🌟 STAGE & AUDITIONS',
     badgeColor: 'gold',
     thumbnailUrl: '/images/ocd-talent-hunt.jpg',
-    isFeatured: true,
-    highlightGlow: true,
+    isFeatured: false,
+    highlightGlow: false,
     actionText: 'Apply Now',
     iconName: 'Mic',
   },
 
-  // 6. Featured Applications: Vendors & Stalls
+  // 6. Applications: Vendors & Stalls
   {
     id: 'ocd-vendor-applications',
     title: 'OTAKU COMMUNITY DAY Vendor & Stall Applications',
@@ -244,13 +244,13 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🛍️ STALLS & MERCH',
     badgeColor: 'emerald',
     thumbnailUrl: '/images/ocd-stalls.jpg',
-    isFeatured: true,
-    highlightGlow: true,
+    isFeatured: false,
+    highlightGlow: false,
     actionText: 'Register Stall',
     iconName: 'Store',
   },
 
-  // 7. Featured Applications: OAC Crew Volunteer
+  // 7. Applications: OAC Crew Volunteer
   {
     id: 'oac-crew-volunteer',
     title: '🔥 OAC CREW 001 — VOLUNTEER APPLICATIONS OPEN!',
@@ -259,7 +259,7 @@ export const LINK_ITEMS: LinkItem[] = [
     badge: '🤝 JOIN THE CREW',
     badgeColor: 'red',
     thumbnailUrl: '/images/oac-crew.png',
-    isFeatured: true,
+    isFeatured: false,
     highlightGlow: true,
     actionText: 'Join Volunteer Crew',
     iconName: 'Users',
