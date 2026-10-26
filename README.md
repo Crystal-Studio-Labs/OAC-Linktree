@@ -189,7 +189,15 @@ OAC-Linktree/
 │   ├── App.tsx                 # Master root layout & warp routing controller
 │   ├── index.css               # Design tokens, keyframes & anime animations
 │   └── main.tsx                # React 18 client root mounting
+├── .cursor/rules/              # Cursor 2.0+ modular agent rules
+├── .cursorrules                # Cursor IDE agent instructions
+├── .github/
+│   ├── copilot-instructions.md # GitHub Copilot workspace agent instructions
+│   └── workflows/deploy.yml    # GitHub Actions deployment workflow
+├── .windsurfrules              # Windsurf Cascade agent instructions
+├── AGENTS.md                   # Standard agent specification (Gemini, Antigravity)
 ├── CHANGELOG.md                # Release versioning history
+├── CLAUDE.md                   # Anthropic Claude Code agent instructions
 ├── CODE_OF_CONDUCT.md          # Community standards & pledge
 ├── CONTRIBUTING.md             # Contribution rules & link schema
 ├── index.html                  # SEO, Open Graph tags & JSON-LD structured data
