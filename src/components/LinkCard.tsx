@@ -15,6 +15,10 @@ export default function LinkCard({ link, index }: LinkCardProps) {
     e.preventDefault();
     if (isExpanding) return;
 
+    // Strict security check: prevent javascript: and data: URI execution
+    const isSafeUrl = /^(https?:\/\/|mailto:)/i.test(link.url);
+    if (!isSafeUrl) return;
+
     setIsExpanding(true);
 
     // Expand & burst animation, then redirect after 380ms
