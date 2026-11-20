@@ -264,4 +264,18 @@ export const LINK_ITEMS: LinkItem[] = [
     actionText: 'Join Volunteer Crew',
     iconName: 'Users',
   },
+  // 8. Applications: Cosplay Competition
+  {
+    id: 'cosplay-competition',
+    title: 'Cosplay Competition Registration',
+    subtitle: 'Ready to show your cosplay? Open the form for competition details and registration.',
+    url: 'https://forms.gle/gFSDJYYVemQnKapj7',
+    badge: 'COSPLAY COMPETITION',
+    badgeColor: 'gold',
+    thumbnailUrl: '/images/cosplay-competition.jpg',
+    isFeatured: false,
+    highlightGlow: false,
+    actionText: 'Register Now',
+    iconName: 'Sparkles',
+  },
 ];
